@@ -2,15 +2,15 @@
   <img alt="Vue logo" src="./assets/logo.png" />
 
   <div>
-    <h4>XX 원룸</h4>
+    <h4>{{ products[0] }}</h4>
     <p>{{ price1 }} 만원</p>
   </div>
   <div>
-    <h4>XX 원룸</h4>
+    <h4>{{ products[1] }}</h4>
     <p>{{ price2 }} 만원</p>
   </div>
   <div>
-    <h4>XX 원룸</h4>
+    <h4>{{ products[2] }}</h4>
     <p>XX 만원</p>
   </div>
 </template>

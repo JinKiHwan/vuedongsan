@@ -6,7 +6,7 @@
   <div>
     <h4>{{ products[0] }}</h4>
     <p>{{ price1 }} 만원</p>
-    <button @:click="increase">허위매물신고</button>
+    <button @:click="increase0">허위매물신고</button>
     <span>신고수 : {{ 신고수[0] }}</span>
   </div>
   <div>
@@ -37,7 +37,7 @@ export default {
   },
 
   methods: {
-    increase() {
+    increase0() {
       this.신고수[0]++;
     },
     increase1() {

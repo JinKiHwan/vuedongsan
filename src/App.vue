@@ -5,13 +5,17 @@
   </div>
   <!-- //메뉴 -->
 
+  <!-- 할인 배너 -->
+  <DiscountBanner />
+  <!-- //할인 배너 -->
+
   <!-- 모달창 -->
   <div class="black-bg" v-if="모달창열렸니 == true">
     <div class="white-bg">
       <img :src="원룸들[누른거].image" alt="" class="modal-img" />
       <h4>{{ 원룸들[누른거].title }}</h4>
-      <p>{{ 원룸들[누른거].price }}</p>
       <p>{{ 원룸들[누른거].content }}</p>
+      <p>{{ 원룸들[누른거].price }} 원</p>
       <button @click="모달창열렸니 = false">닫기</button>
     </div>
   </div>
@@ -28,13 +32,14 @@
     >
       {{ 원룸들[i].title }}
     </h4>
-    <p>{{ 원룸들[i].price }} 만원</p>
+    <p>{{ 원룸들[i].price }} 원</p>
   </div>
   <!-- //리스트 -->
 </template>
 
 <script>
 import oneroom from './assets/oneroom';
+import DiscountBanner from './components/DiscountBanner.vue';
 
 export default {
   name: 'App',
@@ -53,7 +58,9 @@ export default {
 
   methods: {},
 
-  components: {},
+  components: {
+    DiscountBanner: DiscountBanner,
+  },
 };
 </script>
 
@@ -109,5 +116,11 @@ h4 {
 }
 .modal-img {
   width: 100%;
+}
+.discount {
+  background: #ddd;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
 }
 </style>

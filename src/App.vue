@@ -7,30 +7,14 @@
     <div class="white-bg">
       <h4>상세페이지</h4>
       <p>상세페이지 내용</p>
-      <button>닫기</button>
+      <button @click="모달창열렸니 = false">닫기</button>
     </div>
   </div>
 
-  <div @click="모달창열렸니 = true">
-    <img src="./assets/room0.jpg" alt="" class="room-img" />
-    <h4>{{ 원룸들[0].title }}</h4>
-    <p>{{ price1 }} 만원</p>
-    <button @:click="신고수[0]++">허위매물신고</button>
-    <span>신고수 : {{ 신고수[0] }}</span>
-  </div>
-  <div>
-    <img src="./assets/room1.jpg" alt="" class="room-img" />
-    <h4>{{ 원룸들[1].title }}</h4>
-    <p>{{ price2 }} 만원</p>
-    <button @:click="신고수[1]++">허위매물신고</button>
-    <span>신고수 : {{ 신고수[1] }}</span>
-  </div>
-  <div>
-    <img src="./assets/room2.jpg" alt="" class="room-img" />
-    <h4>{{ 원룸들[2].title }}</h4>
-    <p>XX 만원</p>
-    <button @:click="신고수[2]++">허위매물신고</button>
-    <span>신고수 : {{ 신고수[2] }}</span>
+  <div v-for="(object, i) in 원룸들" :key="i">
+    <img :src="원룸들[i].image" alt="" class="room-img" />
+    <h4 @click="모달창열렸니 = true">{{ 원룸들[i].title }}</h4>
+    <p>{{ 원룸들[i].price }} 만원</p>
   </div>
 </template>
 
@@ -101,5 +85,8 @@ div {
   background: white;
   border-radius: 8px;
   padding: 20px;
+}
+h4 {
+  cursor: pointer;
 }
 </style>

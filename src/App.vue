@@ -1,21 +1,36 @@
 <template>
+  <!-- 메뉴 -->
   <div class="menu">
     <a v-for="(a, i) in 메뉴들" :key="i">{{ a }}</a>
   </div>
+  <!-- //메뉴 -->
 
+  <!-- 모달창 -->
   <div class="black-bg" v-if="모달창열렸니 == true">
     <div class="white-bg">
-      <h4>상세페이지</h4>
-      <p>상세페이지 내용</p>
+      <img :src="원룸들[누른거].image" alt="" class="modal-img" />
+      <h4>{{ 원룸들[누른거].title }}</h4>
+      <p>{{ 원룸들[누른거].price }}</p>
+      <p>{{ 원룸들[누른거].content }}</p>
       <button @click="모달창열렸니 = false">닫기</button>
     </div>
   </div>
+  <!-- //모달창 -->
 
+  <!-- 리스트 -->
   <div v-for="(object, i) in 원룸들" :key="i">
     <img :src="원룸들[i].image" alt="" class="room-img" />
-    <h4 @click="모달창열렸니 = true">{{ 원룸들[i].title }}</h4>
+    <h4
+      @click="
+        모달창열렸니 = true;
+        누른거 = i;
+      "
+    >
+      {{ 원룸들[i].title }}
+    </h4>
     <p>{{ 원룸들[i].price }} 만원</p>
   </div>
+  <!-- //리스트 -->
 </template>
 
 <script>
@@ -25,6 +40,7 @@ export default {
   name: 'App',
   data() {
     return {
+      누른거: 0,
       원룸들: oneroom,
       모달창열렸니: false,
       메뉴들: ['Home', 'Products', 'About'],
@@ -78,6 +94,8 @@ div {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
+  left: 0;
+  top: 0;
   padding: 20px;
 }
 .white-bg {
@@ -88,5 +106,8 @@ div {
 }
 h4 {
   cursor: pointer;
+}
+.modal-img {
+  width: 100%;
 }
 </style>

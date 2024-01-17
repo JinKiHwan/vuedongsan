@@ -4,8 +4,8 @@
   </div>
 
   <div v-for="(name, i) in products" :key="i">
-    <h4>{{ name }}</h4>
-    <p>{{ price1 }} 만원</p>
+    <h4>{{ name.prod }}</h4>
+    <p>{{ name.price }} 만원</p>
   </div>
 </template>
 
@@ -17,7 +17,11 @@ export default {
       메뉴들: ['Home', 'Products', 'About'],
       price1: 60,
       price2: 70,
-      products: ['역삼동 원룸', '천호동 원룸', '마포구 원룸'],
+      products: [
+        { prod: '역삼동원룸', price: 60 },
+        { prod: '천호동원룸', price: 70 },
+        { prod: '마포구원룸', price: 80 },
+      ],
     };
   },
   components: {},

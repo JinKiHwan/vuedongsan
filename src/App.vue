@@ -12,7 +12,15 @@
   <!-- //할인 배너 -->
 
   <!-- 리스트 -->
-  <OneroomList v-for="(list, i) in 원룸들" :key="i" :원룸들="원룸들[i]" />
+  <OneroomList
+    v-for="(list, i) in 원룸들"
+    :key="i"
+    :원룸들="원룸들[i]"
+    @openModal="
+      모달창열렸니 = true;
+      누른거 = $event;
+    "
+  />
 
   <!-- //리스트 -->
 </template>

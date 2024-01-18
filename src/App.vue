@@ -5,7 +5,7 @@
   </div>
   <!-- //메뉴 -->
 
-  <ModalApple />
+  <ModalApple :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니" />
 
   <!-- 할인 배너 -->
   <DiscountBanner />

@@ -12,18 +12,8 @@
   <!-- //할인 배너 -->
 
   <!-- 리스트 -->
-  <div v-for="(object, i) in 원룸들" :key="i">
-    <img :src="원룸들[i].image" alt="" class="room-img" />
-    <h4
-      @click="
-        모달창열렸니 = true;
-        누른거 = i;
-      "
-    >
-      {{ 원룸들[i].title }}
-    </h4>
-    <p>{{ 원룸들[i].price }} 원</p>
-  </div>
+  <OneroomList v-for="(list, i) in 원룸들" :key="i" :원룸들="원룸들[i]" />
+
   <!-- //리스트 -->
 </template>
 
@@ -31,6 +21,7 @@
 import oneroom from './assets/oneroom';
 import DiscountBanner from './components/DiscountBanner.vue';
 import ModalApple from './components/ModalApple.vue';
+import OneroomList from './components/OneroomList.vue';
 
 export default {
   name: 'App',
@@ -52,6 +43,7 @@ export default {
   components: {
     DiscountBanner: DiscountBanner,
     ModalApple: ModalApple,
+    OneroomList: OneroomList,
   },
 };
 </script>

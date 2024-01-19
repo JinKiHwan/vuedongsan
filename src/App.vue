@@ -5,6 +5,13 @@
   </div>
   <!-- //메뉴 -->
 
+  <!-- 정렬버튼 -->
+  <button @click="priceSort()">가격 저렴한 순 정렬</button>
+  <button @click="priceSortReverse()">가격 비싼 순 정렬</button>
+  <button @click="abcSort()">가나다 순 정렬</button>
+  <button @click="sortBack()">초기화</button>
+  <!-- //정렬버튼 -->
+
   <transition name="fade">
     <ModalApple :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니" @closePopup="모달창열렸니 = false" />
   </transition>
@@ -36,6 +43,7 @@ export default {
   name: 'App',
   data() {
     return {
+      원룸들오리지널: [...oneroom],
       누른거: 0,
       원룸들: oneroom,
       모달창열렸니: false,
@@ -47,7 +55,26 @@ export default {
     };
   },
 
-  methods: {},
+  methods: {
+    sortBack() {
+      this.원룸들 = [...this.원룸들오리지널];
+    },
+    priceSort() {
+      this.원룸들.sort(function (a, b) {
+        return a.price - b.price;
+      });
+    },
+    priceSortReverse() {
+      this.원룸들.sort(function (a, b) {
+        return b.price - a.price;
+      });
+    },
+    abcSort() {
+      this.원룸들.sort(function (a, b) {
+        return a.name - b.name;
+      });
+    },
+  },
 
   components: {
     DiscountBanner: DiscountBanner,

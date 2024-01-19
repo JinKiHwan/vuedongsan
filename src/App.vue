@@ -9,7 +9,7 @@
     <ModalApple :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니" @closePopup="모달창열렸니 = false" />
   </transition>
   <!-- 할인 배너 -->
-  <DiscountBanner v-if="showDiscount == true" />
+  <DiscountBanner v-if="showDiscount == true" :discountPercent="discountPercent" />
   <!-- //할인 배너 -->
 
   <!-- 정렬버튼 -->
@@ -53,6 +53,7 @@ export default {
       price2: 70,
       products: ['역삼동 원룸', '천호동 원룸', '마포구 원룸'],
       신고수: [0, 0, 0],
+      discountPercent: 10,
     };
   },
 
@@ -81,6 +82,20 @@ export default {
     DiscountBanner: DiscountBanner,
     ModalApple: ModalApple,
     OneroomList: OneroomList,
+  },
+
+  /* 숙제 */
+  //1초마다 할인배너 1% 씩 감소 setInterval 활용
+  //재랜더링 == 업데이트, 업데이트 되기 전에 훅을 걸어 모달창에 2를 입력시 3개월부터 한다는 알럿 팝업창띄우기
+  mounted() {
+    setInterval(() => {
+      if (this.discountPercent > 0) {
+        this.discountPercent--;
+      } else if (this.discountPercent <= 0) {
+        this.discountPercent;
+        this.showDiscount = false;
+      }
+    }, 500);
   },
 };
 </script>

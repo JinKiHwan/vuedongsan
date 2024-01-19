@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      month: 1,
+      month: '',
     };
   },
 
@@ -36,6 +36,13 @@ export default {
         this.month = 1;
       }
     },
+  },
+
+  updated() {
+    if (this.month <= 2) {
+      alert('3개월 이상부터 선택 가능');
+      this.month = 3;
+    }
   },
 };
 </script>

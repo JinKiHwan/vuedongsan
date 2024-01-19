@@ -5,8 +5,9 @@
   </div>
   <!-- //메뉴 -->
 
-  <ModalApple :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니" @closePopup="모달창열렸니 = false" />
-
+  <transition name="fade">
+    <ModalApple :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니" @closePopup="모달창열렸니 = false" />
+  </transition>
   <!-- 할인 배너 -->
   <DiscountBanner />
   <!-- //할인 배너 -->
@@ -116,5 +117,24 @@ h4 {
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
+}
+
+.fade-enter-from {
+  transform: translateY(-1100px);
+}
+.fade-enter-active {
+  transition: all 0.3s;
+}
+.fade-enter-to {
+  transform: translateY(0);
+}
+.fade-leave-from {
+  transform: translateY(0);
+}
+.fade-leave-active {
+  transition: all 0.3s;
+}
+.fade-leave-to {
+  transform: translateY(-1100px);
 }
 </style>

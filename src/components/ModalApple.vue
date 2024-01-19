@@ -31,12 +31,10 @@ export default {
 
   watch: {
     month(a) {
-      if (typeof a == 'string') {
+      if (isNaN(a) == true) {
         alert('글자, 특수문자, 공백은 안됨');
         this.month = 1;
       }
-
-      console.log(a);
     },
   },
 };

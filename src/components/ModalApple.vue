@@ -6,7 +6,7 @@
       <h4>{{ 원룸들[누른거].title }}</h4>
       <p>{{ 원룸들[누른거].content }}</p>
 
-      <input v-model.number="month" />
+      <input type="number" v-model.number="month" />
 
       <p>{{ month }}개월 선택함 : {{ 원룸들[누른거].price * month }} 원</p>
       <button @click="$emit('closePopup')">닫기</button>
@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      month: '',
+      month: 3,
     };
   },
 

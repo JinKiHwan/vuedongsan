@@ -5,19 +5,19 @@
   </div>
   <!-- //메뉴 -->
 
+  <transition name="fade">
+    <ModalApple :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니" @closePopup="모달창열렸니 = false" />
+  </transition>
+  <!-- 할인 배너 -->
+  <DiscountBanner v-if="showDiscount == true" />
+  <!-- //할인 배너 -->
+
   <!-- 정렬버튼 -->
   <button @click="priceSort()">가격 저렴한 순 정렬</button>
   <button @click="priceSortReverse()">가격 비싼 순 정렬</button>
   <button @click="abcSort()">가나다 순 정렬</button>
   <button @click="sortBack()">초기화</button>
   <!-- //정렬버튼 -->
-
-  <transition name="fade">
-    <ModalApple :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니" @closePopup="모달창열렸니 = false" />
-  </transition>
-  <!-- 할인 배너 -->
-  <DiscountBanner />
-  <!-- //할인 배너 -->
 
   <!-- 리스트 -->
   <OneroomList
@@ -43,6 +43,7 @@ export default {
   name: 'App',
   data() {
     return {
+      showDiscount: true,
       원룸들오리지널: [...oneroom],
       누른거: 0,
       원룸들: oneroom,

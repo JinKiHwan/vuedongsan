@@ -71,7 +71,7 @@ export default {
     },
     abcSort() {
       this.원룸들.sort(function (a, b) {
-        return a.name - b.name;
+        return a.title.localeCompare(b.title);
       });
     },
   },
